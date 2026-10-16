@@ -1,27 +1,31 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Placement Prediction{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=3) }}">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">🎓 Placement Predictor</div>
-        <ul class="nav-links">
-            <li><a href="{{ url_for('index') }}">Dashboard</a></li>
-            <li><a href="{{ url_for('data_loading') }}">Data Loading</a></li>
-            <li><a href="{{ url_for('eda') }}">EDA</a></li>
-        </ul>
-    </nav>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="nav-brand" href="{{ url_for('index') }}">🎓 Placement Predictor</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('index') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('load_page') }}">Data Loading</a></li>
+                    <li><a href="{{ url_for('eda_page') }}">EDA</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main class="content">
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="footer">
-        <p>Placement Prediction App &mdash; PyCharm / Flask project</p>
+    <footer class="site-footer">
+        <p>Placement Prediction App — Flask Project</p>
     </footer>
 </body>
 </html>
